@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace AddressBookSystem 
+namespace AddressBookSystem
 {
     class AddressBookBuider : IContacts
-{
-        private LinkedList<Contacts> list = new LinkedList<Contacts>();
-        private Dictionary<string, AddressBookBuider> dictionary = new Dictionary<string, AddressBookBuider>();
-        public void AddContact(string firstName, string lastName, string address, string city, string state, string email, int zip, long phoneNumber)
+    {
+        readonly List<Contacts> list = new List<Contacts>();
+        private readonly Dictionary<string, Contacts> dictionary = new Dictionary<string, Contacts>();
+        public void AddContact(string firstName, string lastName, string address, string city, string state, string email, int zip, long phoneNumber, string bookName)
         {
             Contacts contact = new Contacts();
             contact.FirstName = firstName;
@@ -20,7 +21,8 @@ namespace AddressBookSystem
             contact.Email = email;
             contact.Zip = zip;
             contact.PhoneNumber = phoneNumber;
-            list.AddLast(contact);
+            list.Add(contact);
+            dictionary.Add(bookName, contact);
         }
         public void DisplayContact()
         {
@@ -116,17 +118,6 @@ namespace AddressBookSystem
                 Console.WriteLine("list is empty,cannot delete");
         }
 
-
-        public void AddAddressBook(string bookName)
-        {
-            AddressBookBuider addressBook = new AddressBookBuider();
-            dictionary.Add(bookName, addressBook);
-            Console.WriteLine("AddressBook Created.");
-        }
-        public Dictionary<string, AddressBookBuider> GetAddressBook()
-        {
-            return dictionary;
-        }
         public string CheckFor_Duplicate(string name)
         {
 
@@ -141,6 +132,24 @@ namespace AddressBookSystem
             }
             return "flag";
         }
+        public void SearchPersonByCity(string cityOrstate)
+        {
+            foreach (var element in dictionary)
+            {
+                if (element.Value.City.Equals(cityOrstate))
+                {
+                    Console.WriteLine("firstname " + element.Value.FirstName + ":City " + element.Value.City);
+                }
+                else if (element.Value.State.Equals(cityOrstate))
+                {
+                    Console.WriteLine(" Firstname" + element.Value.FirstName + ":State " + element.Value.State);
+                }
+                else
+                {
+                    Console.WriteLine("No such City or State stored in your addressbook.\nAvailable city and states are ::\n Cites:: " + element.Value.City + "\nStates:: " + element.Value.State);
+                }
+            }
 
+        }
     }
 }
