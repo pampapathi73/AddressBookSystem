@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookSystem 
@@ -125,6 +126,20 @@ namespace AddressBookSystem
         public Dictionary<string, AddressBookBuider> GetAddressBook()
         {
             return dictionary;
+        }
+        public string CheckFor_Duplicate(string name)
+        {
+
+            foreach (var contact in list)
+            {
+                if (list.Any(e => e.FirstName == name))
+                {
+
+                    Console.WriteLine("Sorry! Duplicate entry not allowed.");
+                    return "true";
+                }
+            }
+            return "flag";
         }
 
     }
