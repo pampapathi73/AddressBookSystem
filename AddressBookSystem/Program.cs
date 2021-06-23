@@ -7,6 +7,8 @@ namespace AddressBookSystem
         static void Main(string[] args)
         {
             Console.WriteLine("Address Book System");
+            Contacts contact = new Contacts();
+            contact.addContact();
         }
     }
 }
