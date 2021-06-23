@@ -8,7 +8,7 @@ namespace AddressBookSystem
         public static void Main(string[] args)
         {
             int option, option1;
-            string bookName = "default";
+            string bookName = "Default";
             AddressBookBuider addressBook = new AddressBookBuider();
 
             Console.WriteLine("1. Would you like to work on existing addressbook ? if yes press 1");
@@ -36,6 +36,7 @@ namespace AddressBookSystem
                 Console.WriteLine("5. Add new addressbook");
                 Console.WriteLine("6. Switch Addressbook");
                 Console.WriteLine("7. Search person in a city or State");
+                Console.WriteLine("8. Get count of  persons by city or State");
                 option = Convert.ToInt32(Console.ReadLine());
 
                 switch (option)
@@ -128,6 +129,9 @@ namespace AddressBookSystem
                                 break;
                         }
                         break;
+                    case 8:
+                        addressBook.GetCountByCityOrState(bookName);
+                        break;
                     default:
                         Console.WriteLine("wrong input");
                         break;
@@ -139,5 +143,3 @@ namespace AddressBookSystem
         }
     }
 }
-
-

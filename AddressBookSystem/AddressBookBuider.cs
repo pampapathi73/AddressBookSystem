@@ -21,7 +21,6 @@ namespace AddressBookSystem
         }
         public void DisplayContact(string bookName)
         {
-
             Console.WriteLine($"You are working on {bookName} addressbook", bookName);
             foreach (KeyValuePair<string, Contacts> item in addressBookDictionary[bookName].addressBook)
             {
@@ -181,6 +180,23 @@ namespace AddressBookSystem
                 book.Add(value);
             }
             return book;
+        }
+        public void GetCountByCityOrState(string bookName)
+        {
+            int cityCount = 0;
+            int stateCount = 0;
+            Console.WriteLine("Enter city or state :");
+            string cityNameOrStateName = Console.ReadLine();
+            foreach (KeyValuePair<string, Contacts> item in addressBookDictionary[bookName].addressBook)
+            {
+                if (cityNameOrStateName.Equals(item.Value.City))
+                    cityCount++;
+                if (cityNameOrStateName.Equals(item.Value.State))
+                    stateCount++;
+
+            }
+            Console.WriteLine("The count of pesron by city is : " + cityCount + "and by state is : " + stateCount);
+
         }
     }
 }
