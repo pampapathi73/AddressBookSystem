@@ -39,6 +39,7 @@ namespace AddressBookSystem
                 Console.WriteLine("8. Get count of  persons by city or State");
                 Console.WriteLine("9. Sort Entries by Person name");
                 Console.WriteLine("10. Sort Entries city zip state name");
+                Console.WriteLine("11.Read or write addressbook contacts using File IO");
                 option = Convert.ToInt32(Console.ReadLine());
 
                 switch (option)
@@ -141,6 +142,11 @@ namespace AddressBookSystem
                         addressBook.SortByCity();
                         addressBook.SortByState();
                         addressBook.SortByZip();
+                        break;
+                    case 11:
+                        ReadWriteFileIO fileIO = new ReadWriteFileIO();
+                        fileIO.WriteToFile(addressBook.addressBookDictionary);
+                        fileIO.ReadFromFile();
                         break;
                     default:
                         Console.WriteLine("wrong input");
