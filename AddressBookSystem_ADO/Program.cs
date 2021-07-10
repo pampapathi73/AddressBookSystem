@@ -8,9 +8,10 @@ namespace AddressBookSystem_ADO
         {
             Console.WriteLine("Hello World!");
             AddressBookDatabase ab = new AddressBookDatabase();
-           // ab.GetPersonDetailsfromDatabase();
-            ab.RetriveContactInParticularPeriod();
-            ab.RetriveContactByCityOrState();
+            // ab.GetPersonDetailsfromDatabase();
+            //ab.RetriveContactInParticularPeriod();
+            // ab.RetriveContactByCityOrState();
+            ab.AddNewContact();
         }
     }
 }
