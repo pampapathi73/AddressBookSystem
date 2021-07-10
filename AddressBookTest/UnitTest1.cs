@@ -41,5 +41,19 @@ namespace AddressBookTest
             bool result = database.RetriveContactInParticularPeriod();
             Assert.AreEqual(expectedResult, result);
         }
-    }
+        [TestMethod]
+        public void GivenQuery_WhenRetrieveByCityOrState_ShouldRetrievContactAndReturnNoOfCounts()
+        {
+            int expectedResult = 3;
+            AddressBookDatabase database = new AddressBookDatabase();
+            AddressBookModel model = new AddressBookModel()
+            {
+                state = "Assam"
+            };
+            int result = database.RetriveContactByCityOrState(model);
+            Assert.AreEqual(expectedResult, result);
+        }
+        
+
+    } 
 }

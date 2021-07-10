@@ -10,6 +10,7 @@ namespace AddressBookSystem_ADO
             AddressBookDatabase ab = new AddressBookDatabase();
            // ab.GetPersonDetailsfromDatabase();
             ab.RetriveContactInParticularPeriod();
+            ab.RetriveContactByCityOrState();
         }
     }
 }
