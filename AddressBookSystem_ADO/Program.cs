@@ -11,7 +11,7 @@ namespace AddressBookSystem_ADO
             // ab.GetPersonDetailsfromDatabase();
             //ab.RetriveContactInParticularPeriod();
             // ab.RetriveContactByCityOrState();
-            ab.AddNewContact();
+           // ab.AddNewContact();
         }
     }
 }
